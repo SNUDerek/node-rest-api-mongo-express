@@ -8,15 +8,18 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// routes
+const authRouter = require('./routes/auth')
 const booksRouter = require('./routes/books')
+
+app.use('/api/user', authRouter)
 app.use('/books', booksRouter)
 
+// routes
 app.get('/', (req, res) => {
     res.send('we are at home')
 })
 
-app.get('/json', (req, res) => {
+app.get('/hello', (req, res) => {
     res.json({"hello": "world"})
 })
 

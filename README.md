@@ -1,6 +1,6 @@
 # REST API example with mongodb, node and express
 
-basic node CRUD REST API with express. saves to and reads from monogdb.
+basic node CRUD & authentication REST API with express. saves to and reads from monogdb.
 
 ## requirements
 
@@ -23,9 +23,19 @@ npm start
 
 ## usage
 
-see the included `test.ipynb` for testing with python notebook, or see the `test.rest` file for testing with VS Code extension.
+see the included `test-xxx.ipynb` for testing with python notebook, or see the `test.rest` file for testing with VS Code extension.
 
-## endpoints
+## user endpoints
+
+### POST /api/user/register
+
+<todo>
+
+### POST /api/user/login
+
+<todo>
+
+## books endpoints
 
 ### GET /json
 
@@ -76,3 +86,4 @@ based on:
 
 [Build A Restful Api With Node.js Express & MongoDB | Rest Api Tutorial](https://www.youtube.com/watch?v=vjf774RKrLc)  
 [Build A REST API With Node.js, Express, & MongoDB - Quick](https://www.youtube.com/watch?v=fgTGADljAeg)  
+[Build A Node.js API Authentication With JWT Tutorial](https://www.youtube.com/watch?v=2jqok-WgelI)
