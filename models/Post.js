@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const PostSchema = mongoose.Schema({
     title: {
@@ -13,7 +13,7 @@ const PostSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     }
-});
+})
 
 // export schema as mongoose model
-module.exports = mongoose.model('Post', PostSchema);
+module.exports = mongoose.model('Post', PostSchema)
