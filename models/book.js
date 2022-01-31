@@ -1,19 +1,19 @@
 const mongoose = require('mongoose')
 
-const PostSchema = mongoose.Schema({
+const BookSchema = mongoose.Schema({
     title: {
         type: String,
         required: true
     },
-    description: {
+    author: {
         type: String,
         required: true
     },
-    date: {
-        type: Date,
-        default: Date.now
-    }
+    genre: String,
+    isbn: String,
+    publisher: String,
+    description: String
 })
 
 // export schema as mongoose model
-module.exports = mongoose.model('Post', PostSchema)
+module.exports = mongoose.model('Book', BookSchema)

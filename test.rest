@@ -1,0 +1,53 @@
+# this is a test file for the VS Code "REST Client" extension.
+# if you have the extension properly installed, 
+# you should see a "Send Request" above each request.
+# clicking this will show you the response in a new terminal window.
+
+### test getting json back
+
+GET http://localhost:5000/json
+
+### post a new book
+
+POST http://localhost:5000/books
+Content-Type: application/json
+
+{
+    "title": "Eye of the World",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+}
+
+### post another book
+
+POST http://localhost:5000/books
+Content-Type: application/json
+
+{
+    "title": "Ender's Game",
+    "author": "Orson Scott Card",
+    "genre": "science fiction"
+}
+
+### get books (should see the books you added)
+
+GET http://localhost:5000/books
+
+### update a book (use the _id you got!)
+
+PATCH http://localhost:5000/books/61f7d98cc086db194dd89ae1
+Content-Type: application/json
+
+{
+    "title": "The Eye of the World"
+}
+
+
+### delete a book (use the _id you got!)
+
+DELETE http://localhost:5000/books/61f7d9a5c086db194dd89ae3
+
+### get books to check update, delete
+
+GET http://localhost:5000/books
+

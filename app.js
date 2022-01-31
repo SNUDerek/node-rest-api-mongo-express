@@ -9,15 +9,14 @@ app.use(cors())
 app.use(express.json())
 
 // routes
-const postsRouter = require('./routes/posts')
-app.use('/posts', postsRouter)
+const booksRouter = require('./routes/books')
+app.use('/books', booksRouter)
 
 app.get('/', (req, res) => {
     res.send('we are at home')
 })
 
 app.get('/json', (req, res) => {
-    console.log('test middleware for json')
     res.json({"hello": "world"})
 })
 
@@ -28,5 +27,5 @@ const db = mongoose.connection
 db.on('error', (err) => console.error(err))
 
 // start listening
-const appPort = process.env.API_PORT || 6969
+const appPort = process.env.API_PORT || 5000
 app.listen(appPort, () => console.log(`server started on port ${appPort}`))
