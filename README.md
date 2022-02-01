@@ -1,23 +1,29 @@
 # REST API example with mongodb, node and express
 
-basic node REST API with express with mongodb
+basic node REST API with express & mongodb
 
 ## features and todo
 
-- example CRUD REST API (book catalog) with mongodb storage
-- example authentication REST API with json webtokens and salted, hashed passwords & expiring tokens
-
+- example CRUD REST API (book catalog)
+- example token-based authentication REST API
+- persistence with mongodb via `mongoose`
+- hashed passwords with `bcrypt`
+- token issuance and verification with `jsonwebtokens` (jwt)
+- (wip) caching some endpoints with `redis`
+- (todo) add mongodb auth
+- (todo) javascript style docstrings
+- (todo) dockerized deployment
 
 ## requirements
 
 - `npm` + `node`
-- `docker` and (optionally) `docker-compose` for running `mongoDB`
+- `docker` and (optionally) `docker-compose` for running `mongodb` or else a local `mongodb` install
 - (optional) `python` + `jupyter` for testing the api, else use Postman or VS Code "REST Client" extension
 
 ## start
 
 ```
-# start mongodb
+# start mongodb (from ./docker/dev)
 docker-compose up -d
 
 # install necessary packages
@@ -30,12 +36,23 @@ npm start
 you will need a `.env` file like below for testing:
 
 ```
-DB_URL=mongodb://localhost:27017/<db_name>
+MONGODB_URL=mongodb://localhost:27017/<db_name>
 TOKEN_SECRET=<some random string>
-API_PORT=<port_to_run_on>
+REDIS_PORT=6379
+API_PORT=<port_to_run_on, default 5000>
 ```
 
-## usage
+for development, you can access `mongodb` and `redis` like:
+
+```
+# start mongo shell from docker-compose mongo
+docker exec -it dev_devmongo_1 mongo
+
+# start redis-cli from docker-compose redis
+docker exec -it dev_devredis_1 redis-cli
+```
+
+## usage/testing
 
 see the included `test-xxx.ipynb` in `/tests` for testing with python notebook, or see the `test.rest` file for testing with VS Code extension.
 
@@ -115,6 +132,11 @@ update a book in the db. only send the fields to update.
 
 remove a book from the database
 
+## search endpoints
+
+### GET /search?<key>=<value>
+
+search for book(s) with the associated key-value pair. e.g. `?genre=fantasy` or `?author=Robert Jordan`
 
 ## references
 
@@ -122,4 +144,6 @@ based on:
 
 [Build A Restful Api With Node.js Express & MongoDB | Rest Api Tutorial](https://www.youtube.com/watch?v=vjf774RKrLc)  
 [Build A REST API With Node.js, Express, & MongoDB - Quick](https://www.youtube.com/watch?v=fgTGADljAeg)  
-[Build A Node.js API Authentication With JWT Tutorial](https://www.youtube.com/watch?v=2jqok-WgelI)
+[Build A Node.js API Authentication With JWT Tutorial](https://www.youtube.com/watch?v=2jqok-WgelI)  
+[Node.js Crash Course Tutorial #9 - MongoDB](https://www.youtube.com/watch?v=bxsemcrY4gQ)  
+[Redis Caching in Node.js](https://www.youtube.com/watch?v=oaJq1mQ3dFI)
