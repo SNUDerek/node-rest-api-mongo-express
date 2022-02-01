@@ -1,6 +1,12 @@
 # REST API example with mongodb, node and express
 
-basic node CRUD & authentication REST API with express. saves to and reads from monogdb.
+basic node REST API with express with mongodb
+
+## features and todo
+
+- example CRUD REST API (book catalog) with mongodb storage
+- example authentication REST API with json webtokens and salted, hashed passwords & expiring tokens
+
 
 ## requirements
 
@@ -29,11 +35,31 @@ see the included `test-xxx.ipynb` for testing with python notebook, or see the `
 
 ### POST /api/user/register
 
-<todo>
+post new user
+
+**Request:**
+
+```
+{
+    name: string, required
+    username: string, required
+    email: string, required
+    password: string, required
+}
+```
 
 ### POST /api/user/login
 
-<todo>
+post 
+
+**Request:**
+
+```
+{
+    username: string, required
+    password: string, required
+}
+```
 
 ## books endpoints
 
@@ -48,6 +74,8 @@ return list of all books in the db
 ### POST /books
 
 post book to db
+
+**Request:**
 
 ```
 {

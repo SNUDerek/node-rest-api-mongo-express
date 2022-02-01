@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
         res.json(books)
     } catch(err){
         console.error(err)
-        res.status(500).json({ message: error })
+        res.status(500).send(error)
     }
 })
 
@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
         res.status(201).json(savedBook)
     } catch(err){
         console.error(err)
-        res.status(400).json({message: err})
+        res.status(400).send(err)
     }
 })
 
@@ -41,7 +41,7 @@ router.get('/:bookId', async (req, res) => {
         res.json(result)
     } catch(err){
         console.error(err)
-        res.status(500).json({ message: error })
+        res.status(500).send(error)
     }
 })
 
@@ -56,7 +56,7 @@ router.patch('/:bookId', async (req, res) => {
         res.json(updatedBook)
     } catch(err){
         console.error(err)
-        res.status(500).json({ message: error })
+        res.status(500).send(error)
     }
 })
 
@@ -68,7 +68,7 @@ router.delete('/:bookId', async (req, res) => {
         res.json(removedBook)
     } catch(err){
         console.error(err)
-        res.status(500).json({ message: error })
+        res.status(500).send(error)
     }
 })
 
