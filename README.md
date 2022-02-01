@@ -9,7 +9,7 @@ basic node REST API with express & mongodb
 - persistence with mongodb via `mongoose`
 - hashed passwords with `bcrypt`
 - token issuance and verification with `jsonwebtokens` (jwt)
-- (wip) caching some endpoints with `redis`
+- (todo) caching some endpoints with `redis`
 - (todo) add mongodb auth
 - (todo) javascript style docstrings
 - (todo) dockerized deployment

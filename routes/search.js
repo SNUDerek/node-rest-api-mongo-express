@@ -4,7 +4,7 @@ const Book = require('../models/book')
 // GET search book(s) by field(s)
 router.get('/', async (req, res) => {
     const query = req.query
-    console.log(`GET books/search ${query}`)
+    console.log(`GET search`)
     try{
         const books = await Book.find(query)
         res.json(books)
