@@ -12,7 +12,7 @@ app.use(express.json())
 const User = require('./models/user')
 const authRouter = require('./routes/auth')
 const booksRouter = require('./routes/books')
-const verify = require('./verifyToken') 
+const verify = require('./auth/verifyToken') 
 
 app.use('/api/user', authRouter)
 app.use('/books', booksRouter)

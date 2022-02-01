@@ -27,9 +27,17 @@ npm install
 npm start
 ```
 
+you will need a `.env` file like below for testing:
+
+```
+DB_URL=mongodb://localhost:27017/<db_name>
+TOKEN_SECRET=<some random string>
+API_PORT=<port_to_run_on>
+```
+
 ## usage
 
-see the included `test-xxx.ipynb` for testing with python notebook, or see the `test.rest` file for testing with VS Code extension.
+see the included `test-xxx.ipynb` in `/tests` for testing with python notebook, or see the `test.rest` file for testing with VS Code extension.
 
 ## user endpoints
 
