@@ -88,9 +88,15 @@ post
 
 ## books endpoints
 
-### GET /json
+### GET /hello
 
 hello world test
+
+### GET /helloauth
+
+hello world test, with authentication
+
+you should get response with `{"hello": <username> }` if you send your JWT token as header (after registering, see below)
 
 ### GET /books
 

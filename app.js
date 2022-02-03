@@ -31,7 +31,7 @@ app.get('/hello', (req, res) => {
 })
 
 // private test endpoint with auth check
-app.post('/helloauth', verify, async (req, res) => {
+app.get('/helloauth', verify, async (req, res) => {
     const userInfo = await User.findOne({ _id: req.userId })
     res.json({"hello": userInfo.username})
 })
